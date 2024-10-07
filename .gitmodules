@@ -1,0 +1,3 @@
+[submodule "서브모듈 이름"]
+  path = 서브모듈 경로
+  url = 서브모듈 레포지토리 URL
