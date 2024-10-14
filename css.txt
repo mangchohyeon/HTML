@@ -1,0 +1,4 @@
+인라인 스타일 : style 속성
+<nav style : 'background-color : aliceblue'
+
+내부 스타일 : style 태그 이용(html 코드안에서 style을 작성)
