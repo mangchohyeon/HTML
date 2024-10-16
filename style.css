@@ -1,0 +1,29 @@
+div {
+    background-color: aliceblue;
+}
+
+* {
+    margin : 0px;
+    padding : 0px;
+}
+
+#content {
+    background-color : aliceblue;
+    padding : 20px;
+}
+
+.p1 {
+    background-color: white;
+}
+
+.p2 {
+    background-color : aquamarine;
+}
+
+head, main, footer {
+    margin : 20px;
+}
+
+header > p {
+    margin : 20px;
+}
