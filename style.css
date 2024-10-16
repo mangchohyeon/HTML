@@ -1,0 +1,22 @@
+* {
+    margin : 0px;
+    padding : 0px;
+}
+
+#content {
+    background-color: aliceblue;
+    padding : 20px;
+}
+
+.p1 {
+    background-color: white;
+}
+
+.p2 {
+    background-color: aquamarine;
+}
+
+nav, header, main, footer {
+    margin : 20px;
+
+}
