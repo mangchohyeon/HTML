@@ -1,0 +1,36 @@
+* {
+    margin : 0px;
+    padding : 0px;
+}
+
+#content {
+    background-color: aliceblue;
+    padding : 20px;
+}
+
+.p1 {
+    background-color: white;
+}
+
+.p2 {
+    background-color: aquamarine ;
+}
+
+nav, header, main, footer {
+    margin : 20px;
+}
+
+header > p {
+    margin : 20px;
+    font-weight : bold;
+    color : darkgray;
+}
+
+/*
+nav > ul > li :hover {
+    background-color: chocolate;
+}*/
+
+nav li:hover {
+    background-color : chocolate;
+}
