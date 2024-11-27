@@ -1,26 +1,17 @@
-nav {
-  background-color: gray;
+.Home {
+  display : flex;
+  justify-content : center;
 }
 
-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+#whole_wrapper nav ul li {
+  display : inline;
 }
 
-.submenu {
-  font-size: 30px;
-  margin : 0 10px;
+#whole_wrapper nav ul {
+  margin : 10px auto;
 }
 
-.submenu a {
-  text-decoration: none;
-  color: black;
-}
-
-.Home img {
-  vertical-align: middle;
+a {
+  text-decoration-line : none;
+  color : black;
 }
