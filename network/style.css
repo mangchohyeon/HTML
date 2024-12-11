@@ -146,6 +146,12 @@ input::-ms-input-placeholder {
     align-items : center;    
 }
 
+#road_input_div 
+{
+    margin-top : 10px;
+    margin-bottom : 10px;
+}
+
 #canvas 
 {
     width : 570px;

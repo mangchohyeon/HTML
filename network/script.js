@@ -24,26 +24,24 @@ const ctx = canvas.getContext("2d");
 //canvas위에 원A, 원B 그리는 함수
 function canvas_setting() 
 {
-  ctx.moveTo(40, 360)
   ctx.beginPath();
   ctx.arc(40, 360, 20, 0, Math.PI * 2);
-  ctx.fillstyle() = "red";
+  ctx.fillStyle = "red"; 
   ctx.fill();
   ctx.stroke();
   ctx.font = "20px Arial";
   ctx.fillStyle = "black";
-  ctx.fillText("Hello Canvas", 40, 360); // 텍스트 출력
-
-  ctx.moveTo(530, 360)
+  ctx.fillText("A", 30, 355); // 위치를 더 정확히 조정
+  
   ctx.beginPath();
   ctx.arc(530, 360, 20, 0, Math.PI * 2);
-  ctx.fillstyle() = "blue";
+  ctx.fillStyle = "blue"; 
   ctx.fill();
   ctx.stroke();
-  ctx.font = "20px Arial";
   ctx.fillStyle = "black";
-  ctx.fillText("Hello Canvas", 530, 360); // 텍스트 출력
+  ctx.fillText("B", 520, 355); // 위치를 더 정확히 조정
 }
+
 
 //각각 input에서 함수 입력받아 road_func_ary에 저장하는 함수
 function input_road_func(i) 
@@ -69,7 +67,7 @@ function gen_road_input()
     input.className = "road_input";
     input.id = "road_input" + i.toString();
     input.placeholder = "${i+1}번째 수식을 입력하세요."
-    input.onclick(input_road_func(i));
+    input.onclick("input_road_func(i);");
     road_input_div.appendChild(input);
   }
 }
@@ -78,17 +76,25 @@ function gen_road_input()
 //canvas위에 도로 그려주는 함수
 function draw_road() 
 {
-  road_func_ary = [0][2];
-  gap = Math.round((720 / road_num));
-
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전 내용을 지워줌
+  canvas_setting(); // A, B를 다시 그려줌
+  
+  const gap = Math.round(720 / road_num);
   for (let i = 0; i < road_num; i++) 
-  {
+    {
     ctx.beginPath();
-    ctx.moveTo(40, 360);
-    ctx.lineTo(265, 720 - (gap * i));
-    ctx.lineTo(530, 360);
+    ctx.moveTo(40, 360); // 시작점
+    ctx.lineTo(265, 720 - gap * i); // 중간 지점
+    ctx.lineTo(530, 360); // 끝점
+    ctx.strokeStyle = "black"; // 선 색상
+    ctx.stroke(); // 선 그리기
   }
 }
+
+const gen_road_btn = document.getElementById("gen_road_btn");
+gen_road_btn.addEventListener("click", function() {
+  draw_road();
+});
 
 
 //배열의 합을 구하는 함수
@@ -115,7 +121,6 @@ function make_car_ary()
   }
 }
 
-
 //도로수와 차량 수 입력받는 함수
 function get_num(text) 
 {
@@ -138,6 +143,20 @@ function get_num(text)
     make_car_ary();
   }
 }
+
+//road_num과 get_num함수 연결해주기
+const road_num_input = document.getElementById("road_num");
+road_num_input.addEventListener("change", function() {
+  get_num("road");
+});
+
+
+//car_num과 get_num함수 연결해주기
+const car_num_input = document.getElementById("car_num");
+car_num_input.addEventListener("change", function() {
+  get_num("car");
+});
+
 
 
 //알림(재미)
@@ -170,6 +189,28 @@ function alert_error()
   }
 }
 
+//time_ary 탐색해서 시간이 가장 작은 경우 가져오기
+function print_time() 
+{
+  let time_min = time_ary[0];
+  let res_index = 0;
+  let message = "";
+  for(let i = 0; i< time_ary.length(); i++)
+  {
+    if(time_ary[i] < time_min)
+    {
+      time_min = time_ary[i];
+      res_index = i;
+    }
+  }
+
+  for(let i = 0; i < car_ary[res_index].length(); i++)
+  {
+    message += i.toString() + "번째 도로의 차가 ${car_ary[res_index][i]대\n,";
+  }
+  message += "지나갈 때 시간이 ${time_min}분으로 가장 적게 걸립니다!";
+  alert(message);
+}
 
 //결과값 계산하는 함수
 function cal_res() 
@@ -188,10 +229,19 @@ function cal_res()
 
       time_ary.push(t)
     }
+    
+    print_time();
   }
+
+  
 
   else
   {
     alert_error();
   }
 }
+
+const cal_btn = document.getElementById("cal_btn");
+cal_btn.addEventListener("click", function() {
+  cal_res();
+});
