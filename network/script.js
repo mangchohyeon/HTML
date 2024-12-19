@@ -1,4 +1,4 @@
-import * as cmb from './combinatorics.js';
+
 
 let flag = 0;                //도로의 수가 입력되면 road_flag = 1
 let road_num = 0, car_num = 0;
