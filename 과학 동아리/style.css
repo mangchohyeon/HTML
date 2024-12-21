@@ -88,7 +88,12 @@ input::-webkit-outer-spin-button
     margin: 0;
 }
 
-#div_ph
+#h2_ph_input
+{
+    text-align: center;
+}
+
+#div_comb_ph
 {
     display : flex;
     flex-direction : column;
@@ -96,7 +101,7 @@ input::-webkit-outer-spin-button
     margin-top : 20%;
 }
 
-#form_ph
+#form_comb_ph
 {
     display : flex;
     justify-content : center;
@@ -104,7 +109,7 @@ input::-webkit-outer-spin-button
     height : 20%;
 }
 
-#input_ph
+#input_comb_ph
 {
     width : 50%;
     height : 40px;
@@ -112,7 +117,7 @@ input::-webkit-outer-spin-button
     text-align : center;
 }
 
-#div_volume
+#div_water_ph
 {
     display : flex;
     flex-direction : column;
@@ -120,7 +125,7 @@ input::-webkit-outer-spin-button
     margin-top : 20%;
 }
 
-#form_volume
+#form_water_ph
 {
     display : flex;
     justify-content : center;
@@ -128,11 +133,12 @@ input::-webkit-outer-spin-button
     height : 20%;
 }
 
-#input_volume
+#input_water_ph
 {
     width : 50%;
     height : 40px;
     margin-top : 5%;
     text-align : center;
 }
+
 

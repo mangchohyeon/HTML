@@ -39,7 +39,7 @@ radio_skin.forEach(radio => {
   });
 });
 
-// 모든 class="a"인 radio 버튼을 선택합니다.
+// 모든 class="radio_trouble"인 radio 버튼을 선택합니다.
 const radio_trouble = document.querySelectorAll('.radio_trouble');
 
 // 각 radio 버튼에 change 이벤트 리스너를 추가합니다.
@@ -58,32 +58,50 @@ radio_trouble.forEach(radio => {
 });
 
 
-// 상태별 조건을 함수로 저장
-const ary_condition = 
-[
-    ph,skin_index => skin_index = 0 && ph >= 4.2 && ph <= 5.6,
-    ph,skin_index => skin_index = 1 && ph >= 4.2 && ph <= 5.6,
-    ph,skin_index => skin_index = 2 && ph >= 4.2
-];
-  
-
  
   
 
-function print_res(ph)
+function print_res()
 {
-    
+    const a = (comb_ph*50-(Math.pow(10,-1*water_ph) * 49));
+    const res = -1*Math.log10(a);
+    let message = "ph = " + String(Math.round(res)) + "\n피부 타입 : ";
+    for(let i =0; i< skin_index.length; i++)
+    {
+      message += skin_index[i] + '번 ';
+    }
+    message += "\n트러블 : "
+    for(let i = 0; i< trouble_index.length; i++)
+    {
+      message += trouble_index[i]+'번 ';
+    }
+
+    alert(message);
 }
 
-const input_ph = document.getElementById("input_ph");
-let ph = null;
+const input_comb_ph = document.getElementById("input_comb_ph");
+const input_water_ph = document.getElementById("input_water_ph");
+let comb_ph = null, water_ph = null, volume = null;
 
-function get_ph()
+function get_comb_ph()
 {
-    ph = input_ph.value;
-    print_res(ph);
+    comb_ph = input_comb_ph.value;
+    if( !(water_ph == null))
+    {
+      print_res();
+    }
 };
 
-input_ph.addEventListener("change", get_ph);
+input_comb_ph.addEventListener("change", get_comb_ph);
 
+function get_water_ph()
+{
+    water_ph = input_water_ph.value;
+    if(!(comb_ph == null))
+    {
+      print_res();
+    }
+};
+
+input_comb_ph.addEventListener("change", get_water_ph);
 
